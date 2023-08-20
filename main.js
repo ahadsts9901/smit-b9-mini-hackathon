@@ -141,7 +141,7 @@ function renderPostsUser() {
                                                     if (data.email === username) {
                                                         console.log("founded")
                                                         name.innerText = `${data.firstName}  ${data.lastName} |`;
-                                                        document.getElementById("headerName").innerText = data.firstName + data.lastName;
+                                                        document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                                     }
 
                                                 })

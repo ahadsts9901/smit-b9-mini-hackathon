@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
                             if (data.email === username) {
                                 console.log("founded")
-                                document.getElementById("headerName").innerText = data.firstName + data.lastName;
+                                document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                 document.getElementById("name").innerText = `${data.firstName}  ${data.lastName}`;
                             }
 
