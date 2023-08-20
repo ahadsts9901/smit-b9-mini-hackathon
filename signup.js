@@ -35,6 +35,7 @@ function signup(event) {
     let email = (document.getElementById("email-signup").value).toLowerCase();
     let password = document.getElementById("password-signup").value;
     let confirmPassword = document.getElementById("password-signup-repeat").value;
+    let photoU = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     let message = document.querySelector(".validationMessage");
 
     if (!email.endsWith("@gmail.com")) {
@@ -87,12 +88,13 @@ function signup(event) {
             firstName: firstName,
             lastName: lastName,
             email: email,
+            photo: photoU,
         })
         .then((docRef) => {
             console.log("signed added")
         })
         .catch((error) => {
-            console.log("error sognup")
+            console.log("error signup")
         });
 
 

@@ -15,6 +15,7 @@ var auth = firebase.auth();
 var db = firebase.firestore();
 
 document.addEventListener("DOMContentLoaded", function() {
+
     const resetButton = document.getElementById("rbtn");
 
     resetButton.addEventListener("click", async() => {
@@ -79,8 +80,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
 
     } else {
-        window.location.href = "./login.html";
-        document.getElementById("headerName").innerText = "null";
+        window.location.href = "./all.html";
     }
 });
 
@@ -91,7 +91,7 @@ function logOut() {
         .then(() => {
             // console.log("Sign out successful");
             // Redirect to the sign-in page or any other desired destination
-            window.location.href = "./login.html";
+            window.location.href = "./all.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);
@@ -170,9 +170,77 @@ function editName() {
             }
 
         } else {
-            window.location.href = "./login.html";
-            document.getElementById("headerName").innerText = "null";
+            window.location.href = "./all.html";
         }
     });
 
 }
+
+async function file(event) {
+    console.log(event.target.files[0])
+    let uid = firebase.auth().currentUser.uid
+    console.log(uid)
+    let fileref = firebase.storage().ref().child(`/users/${uid}/profile`)
+    let uploadTask = fileref.put(event.target.files[0])
+
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            if (progress == 100) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Uploaded',
+                    showConfirmButton: false,
+                    timer: 1000 // Show success message for 1.5 seconds
+                });
+            }
+        },
+        (error) => {
+            console.log(error)
+        },
+        () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+
+                // Update the photo field in the user's document in Firestore
+                db.collection("users").where("email", "==", firebase.auth().currentUser.email)
+                    .get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            db.collection("users").doc(doc.id).update({
+                                photo: downloadURL
+                            }).then(() => {
+                                console.log("Photo URL updated in Firestore.");
+                            }).catch((error) => {
+                                console.error("Error updating photo URL:", error);
+                            });
+                        });
+                        window.location.reload()
+                    })
+                    .catch((error) => {
+                        console.error("Error querying Firestore:", error);
+                    });
+
+                firebase.auth().currentUser.updateProfile({
+                    photoURL: downloadURL
+                })
+            });
+        }
+    );
+
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // Display the user's profile image if available
+        if (user.photoURL) {
+            document.querySelector(".mainImg").src = user.photoURL;
+            console.log("image")
+        } else {
+            console.log("no")
+        }
+
+        // Rest of your code...
+    }
+});

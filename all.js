@@ -17,8 +17,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         username = user.email.slice(0, -10); // Store the username
         // document.getElementById("headerName").innerText = username;
     } else {
-        window.location.href = "./login.html";
-        document.getElementById("headerName").innerText = 'null';
+        document.querySelector(".log").innerText = "Login"
+        document.querySelector(".log").href = "/login"
     }
 });
 
@@ -45,7 +45,24 @@ function renderPostsUser() {
 
                     let image = document.createElement("img");
                     image.className += "userImg"
-                    image.src = "https://avatars.githubusercontent.com/u/120649081?v=4"
+                    image.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+
+                    let postEmail = data.user
+
+                    db.collection("users").get()
+                        .then((querySnapshot) => {
+                            querySnapshot.forEach((doc) => {
+                                let data = doc.data()
+                                if (data.email === postEmail) {
+                                    console.log("match")
+                                    image.src = data.photo
+                                }
+                            });
+                        })
+                        .catch((error) => {
+                            console.error("Error querying Firestore:", error);
+                        });
+
                     row.appendChild(image);
 
                     let div = document.createElement("div")
@@ -71,8 +88,7 @@ function renderPostsUser() {
                     tim.className += " row gap"
                     div.appendChild(tim)
 
-                    let postEmail = data.user
-                        // console.log(postEmail)
+                    // console.log(postEmail)
 
                     let name = document.createElement("p");
                     name.className += " userMail";

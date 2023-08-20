@@ -6,7 +6,7 @@ const firebaseConfig = {
     messagingSenderId: "566308702301",
     appId: "1:566308702301:web:f8ed2b146cc7e5faffe5b4",
     measurementId: "G-W7ERKEX4FB"
-  };
+};
 
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
@@ -64,7 +64,7 @@ function login(event) {
                 text: 'Login Successfull',
                 confirmButtonColor: "#252525"
             })
-            window.location.href = "../index.html";
+            window.location.href = "./index.html";
         })
         .catch((error) => {
             console.log("Login error:", error);

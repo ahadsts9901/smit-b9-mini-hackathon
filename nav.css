@@ -34,9 +34,10 @@
 
 .list {
     width: 8em;
-    margin: 0.5em 0em;
+    margin: 0em;
     display: inline-block;
     margin-left: 1em;
+    /* margin: 0em!important; */
 }
 
 .list a {
@@ -45,4 +46,11 @@
 
 .icon {
     margin-right: 0.5em;
+}
+
+ul.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
 }
