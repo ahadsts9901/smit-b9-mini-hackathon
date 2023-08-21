@@ -129,7 +129,7 @@ function renderPostsUser() {
 
                     let cont = document.createElement("a");
                     cont.className += " anchor";
-                    cont.style.color = "#8540f5";
+                    cont.style.color = "#0079ff";
                     cont.innerText = "see all from this user";
                     cont.href = './user.html'
                     cont.name = `${postEmail}`

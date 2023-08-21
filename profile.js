@@ -106,7 +106,7 @@ function logOut() {
         .then(() => {
             // console.log("Sign out successful");
             // Redirect to the sign-in page or any other desired destination
-            window.location.href = "./all.html";
+            window.location.href = "./login.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);
@@ -133,8 +133,8 @@ function editName() {
                            <input id="swal-input-lastname" class="swal2-input" placeholder="Last Name" value="${data.lastName || ''}">`,
                                     focusConfirm: false,
                                     showCancelButton: true,
-                                    cancelButtonColor: "#8540f5",
-                                    confirmButtonColor: "#8540f5",
+                                    cancelButtonColor: "#0079ff",
+                                    confirmButtonColor: "#0079ff",
                                     preConfirm: () => {
                                         const newFirstName = document.getElementById('swal-input-firstname').value;
                                         const newLastName = document.getElementById('swal-input-lastname').value;

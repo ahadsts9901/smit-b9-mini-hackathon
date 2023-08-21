@@ -53,7 +53,7 @@ function createPost(event) {
                 icon: "success",
                 title: "Added",
                 text: "Post Done",
-                confirmButtonColor: "#8540f5",
+                confirmButtonColor: "#0079ff",
                 showConfirmButton: false,
                 timer: 1500,
             });
@@ -64,7 +64,7 @@ function createPost(event) {
                 icon: "error",
                 title: "Error",
                 text: "Could Not Post",
-                confirmButtonColor: "#8540f5",
+                confirmButtonColor: "#0079ff",
                 showConfirmButton: false,
                 timer: 1500,
             });
@@ -227,8 +227,8 @@ function delPost(postId) {
         text: "Are you sure you want to delete this post?",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#8540f5",
-        cancelButtonColor: "#8540f5",
+        confirmButtonColor: "#0079ff",
+        cancelButtonColor: "#0079ff",
         confirmButtonText: "Yes, delete it!",
     }).then((result) => {
         if (result.isConfirmed) {
@@ -238,7 +238,7 @@ function delPost(postId) {
                         icon: "success",
                         title: "Deleted",
                         text: "Post has been deleted.",
-                        confirmButtonColor: "#8540f5",
+                        confirmButtonColor: "#0079ff",
                         showConfirmButton: false,
                         timer: 1500,
                     });
@@ -251,7 +251,7 @@ function delPost(postId) {
                         icon: "error",
                         title: "Error",
                         text: "An error occurred while deleting the post.",
-                        confirmButtonColor: "#8540f5",
+                        confirmButtonColor: "#0079ff",
                     });
                 });
         }
@@ -265,8 +265,8 @@ function editPost(postId, previousTitle, previousPost) {
         html: `<input id="editedTitle" class="swal2-input" value="${previousTitle}" placeholder="Title...">
              <textarea id="editedPost" class="swal2-input swal-ta" placeholder="Text...">${previousPost}</textarea>`,
         showCancelButton: true,
-        confirmButtonColor: "#8540f5",
-        cancelButtonColor: "#8540f5",
+        confirmButtonColor: "#0079ff",
+        cancelButtonColor: "#0079ff",
         confirmButtonText: "Save",
         preConfirm: () => {
             const editedTitle = document.getElementById('editedTitle').value;
@@ -290,7 +290,7 @@ function editPost(postId, previousTitle, previousPost) {
                         icon: "success",
                         title: "Updated",
                         text: "Post has been updated.",
-                        confirmButtonColor: "#8540f5",
+                        confirmButtonColor: "#0079ff",
                         showConfirmButton: false,
                         timer: 1500,
                     });
@@ -302,7 +302,7 @@ function editPost(postId, previousTitle, previousPost) {
                         icon: "error",
                         title: "Error",
                         text: "An error occurred while updating the post.",
-                        confirmButtonColor: "#8540f5",
+                        confirmButtonColor: "#0079ff",
                         showConfirmButton: false,
                         timer: 1500,
                     });

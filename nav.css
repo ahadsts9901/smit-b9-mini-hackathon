@@ -1,9 +1,9 @@
 .butt {
-    color: #8540f5;
+    color: #0079ff;
     background-color: #fff;
     width: 4em;
     height: 3em;
-    border: 0px solid #8540f5;
+    border: 0px solid #0079ff;
     border-radius: 0px;
     font-size: 1em;
     border-radius: 100px;
@@ -14,12 +14,12 @@
 }
 
 .butt:active {
-    background-color: #8540f5;
+    background-color: #0079ff;
     color: #fff;
 }
 
 .drop-down {
-    background-color: #8540f5;
+    background-color: #0079ff;
     color: #fff;
     border: 0px;
     padding: 0em;
@@ -28,7 +28,7 @@
 
 .drop-down-options {
     background-color: #fff;
-    color: #8540f5;
+    color: #0079ff;
     border: 0px;
 }
 

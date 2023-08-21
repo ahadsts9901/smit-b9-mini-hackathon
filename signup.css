@@ -3,10 +3,10 @@
 * {
     /* font-family: "Poppins", sans-serif; */
     /* font-family: "Space Mono", monospace; */
-    /* font-family: "Josefin Sans", sans-serif; */
-    font-family: "Roboto", sans-serif;
-    font-weight: normal!important;
-    /* font-weight: bold!important; */
+    font-family: "Josefin Sans", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+    /* font-weight: normal!important; */
+    font-weight: bold!important;
     outline: none!important;
     box-sizing: border-box;
     text-decoration: none!important;
@@ -17,7 +17,7 @@
 /* body */
 
 body {
-    background-color: #fff!important;
+    background-color: #f0f0f0!important;
     color: #212121!important;
     display: flex;
     flex-direction: column;
@@ -151,7 +151,7 @@ a {
 
 .button {
     color: #fff;
-    background-color: #8540f5;
+    background-color: #0079ff;
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
@@ -162,7 +162,7 @@ a {
 }
 
 .button:active {
-    background-color: #8540f5;
+    background-color: #0079ff;
 }
 
 
@@ -208,12 +208,12 @@ a {
     height: 6px;
     width: 6px;
     border-radius: 10px;
-    background-color: #8540f5;
+    background-color: #0079ff;
 }
 
 ::-moz-scrollbar-track {
     border-radius: 10px;
-    background-color: #8540f5;
+    background-color: #0079ff;
     /* border: 1px solid #fff; */
 }
 
@@ -227,12 +227,12 @@ a {
     height: 6px;
     width: 6px;
     border-radius: 10px;
-    background-color: #8540f5;
+    background-color: #0079ff;
 }
 
 ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: #8540f5;
+    background-color: #0079ff;
     /* border: 1px solid #fff; */
 }
 
@@ -266,22 +266,22 @@ details summary {
 .swal2-deny:focus,
 .swal2-cancel:focus,
 .swal2-input:focus {
-    box-shadow: 0 0 4px #8540f5 !important;
+    box-shadow: 0 0 4px #0079ff !important;
 }
 
 .swal2-input {
-    border: 0px solid #8540f5 !important;
+    border: 0px solid #0079ff !important;
 }
 
 div:where(.swal2-container) div:where(.swal2-loader) {
-    border-color: #8540f5 #fff!important;
+    border-color: #0079ff #fff!important;
 }
 
 
 /*  */
 
 .login-signup {
-    background-color: #8540f5;
+    background-color: #0079ff;
     width: fit-content;
     height: fit-content;
     padding: 1.5em!important;
@@ -308,42 +308,44 @@ div:where(.swal2-container) div:where(.swal2-loader) {
     width: 10em;
 }
 
-form{
+form {
     background-color: #fff!important;
     width: 15em!important;
     border: 1px solid #ccc;
     border-radius: 10px;
     color: #212121!important;
+    margin: auto!important;
 }
 
-form h2{
-    color: #8540f5;
+form h2 {
+    color: #0079ff;
 }
 
-.input:focus{
-    border: 1px solid #8540f5!important;
+.input:focus {
+    border: 1px solid #0079ff!important;
 }
 
-.eye{
-    color: #000;
+.eye {
+    color: #0079ff;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0.5em;
+    padding: 1em;
     width: 100%;
-    background-color: #8540f5;
+    background-color: #0079ff;
     color: #fff;
+    gap: 2em;
 }
 
-a{
+a {
     color: #fff;
     text-decoration: none;
 }
 
-.heading{
+.heading {
     width: 100%;
     text-align: left;
     padding: 0em 1em;
