@@ -62,7 +62,7 @@ function login(event) {
                 icon: 'success',
                 title: 'Logged In',
                 text: 'Login Successfull',
-                confirmButtonColor: "#252525"
+                confirmButtonColor: "#8540f5"
             })
             window.location.href = "./index.html";
         })

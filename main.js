@@ -238,7 +238,7 @@ function delPost(postId) {
                         icon: "success",
                         title: "Deleted",
                         text: "Post has been deleted.",
-                        confirmButtonColor: "##8540f5",
+                        confirmButtonColor: "#8540f5",
                         showConfirmButton: false,
                         timer: 1500,
                     });

@@ -34,14 +34,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 try {
                     await user.reauthenticateWithCredential(credentials);
                     await user.updatePassword(newPassword);
-                    swal.fire("Success", "Password updated successfully.", "success");
+                    Swal.fire({
+                        icon: 'success',
+                        title: `Password updated successfullt`,
+                        showConfirmButton: false,
+                        timer: 1500 // Show success message for 1.5 seconds
+                    });
                     clearPasswordFields();
                 } catch (error) {
-                    swal.fire("Error", "Incorrect Password.", "error");
+                    Swal.fire({
+                        icon: 'error',
+                        title: `Incorrect password`,
+                        showConfirmButton: false,
+                        timer: 1500 // Show success message for 1.5 seconds
+                    });
                     console.error("Error updating password:", error);
                 }
             } else {
-                swal.fire("Error", "Passwords do not match.", "error");
+                Swal.fire({
+                    icon: 'error',
+                    title: `Passwords do not match`,
+                    showConfirmButton: false,
+                    timer: 1500 // Show success message for 1.5 seconds
+                });
             }
         }
     });
@@ -118,6 +133,8 @@ function editName() {
                            <input id="swal-input-lastname" class="swal2-input" placeholder="Last Name" value="${data.lastName || ''}">`,
                                     focusConfirm: false,
                                     showCancelButton: true,
+                                    cancelButtonColor: "#8540f5",
+                                    confirmButtonColor: "#8540f5",
                                     preConfirm: () => {
                                         const newFirstName = document.getElementById('swal-input-firstname').value;
                                         const newLastName = document.getElementById('swal-input-lastname').value;
