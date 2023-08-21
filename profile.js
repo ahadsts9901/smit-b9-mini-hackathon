@@ -224,9 +224,6 @@ function file(event) {
                 firebase.auth().currentUser.updateProfile({
                     photoURL: downloadURL
                 })
-                setTimeout(()=>{
-                    window.location.reload()
-                },0)
             });
         }
     );
