@@ -176,7 +176,7 @@ function editName() {
 
 }
 
-async function file(event) {
+function file(event) {
     console.log(event.target.files[0])
     let uid = firebase.auth().currentUser.uid
     console.log(uid)
@@ -216,7 +216,6 @@ async function file(event) {
                                 console.error("Error updating photo URL:", error);
                             });
                         });
-                        window.location.reload()
                     })
                     .catch((error) => {
                         console.error("Error querying Firestore:", error);
@@ -225,6 +224,9 @@ async function file(event) {
                 firebase.auth().currentUser.updateProfile({
                     photoURL: downloadURL
                 })
+                setTimeout(()=>{
+                    window.location.reload()
+                },0)
             });
         }
     );
