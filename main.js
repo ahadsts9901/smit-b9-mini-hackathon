@@ -262,8 +262,8 @@ function editPost(postId, previousTitle, previousPost) {
     // Show a prompt using SweetAlert for editing
     Swal.fire({
         title: "Edit Post",
-        html: `<input id="editedTitle" class="swal2-input" value="${previousTitle}" placeholder="Title...">
-             <textarea id="editedPost" class="swal2-input swal-ta" placeholder="Text...">${previousPost}</textarea>`,
+        html: `<input id="editedTitle" class="swal2-input" value="${previousTitle}" placeholder="Title..." minlength="10" maxlength="50">
+             <textarea id="editedPost" class="swal2-input swal-ta" placeholder="Text...">${previousPost}</textarea minlength="40" maxlength="200">`,
         showCancelButton: true,
         confirmButtonColor: "#0079ff",
         cancelButtonColor: "#0079ff",
