@@ -26,13 +26,15 @@ firebase.auth().onAuthStateChanged(function(user) {
                             var data = doc.data();
 
                             if (data.email === localStorage.getItem("userMail")) {
-                                console.log("founded");
+                                // console.log("founded");
 
                                 document.getElementById("mail").innerText = data.email
                                 document.getElementById("mail").href = data.email
                                 localStorage.getItem("userMail");
                                 document.getElementById("pname").innerText = `${data.firstName}  ${data.lastName}`
                                 document.getElementById("User").innerText = data.firstName
+                                    // console.log(data.photo)
+                                document.querySelector(".myImg").src = data.photo
                             }
                         });
                     }
@@ -42,11 +44,10 @@ firebase.auth().onAuthStateChanged(function(user) {
                 });
         }
     } else {
-        if ((window.location.href = "./index.html") || (window.location.href = "./profile.html")) {
-            window.location.href = "./all.html"
-        }
         document.querySelector(".log").innerText = "Login"
-        document.querySelector(".log").href = "/login"
+        document.querySelector(".log").addEventListener('click', () => {
+            window.location.href = "./login.html"
+        })
     }
 });
 
@@ -54,12 +55,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // console.log(localStorage.getItem("userMail"))
     } else {
-
-        window.location.href = "./all.html"
-
         document.querySelector(".log").innerText = "Login"
-        document.querySelector(".log").href = "/login"
-        document.querySelector(".log").removeAttribute("onclick", logout())
+        document.querySelector(".log").addEventListener('click', () => {
+            window.location.href = "./login.html"
+        })
     }
 });
 
@@ -96,9 +95,9 @@ function renderUserPosts(userEmail) {
                             querySnapshot.forEach((doc) => {
                                 let data = doc.data()
                                 if (data.email === postEmail) {
-                                    console.log("match")
+                                    // console.log("match")
                                     image.src = data.photo
-                                    document.querySelector(".myImg").src = data.photo
+                                        // document.querySelector(".myImg").src = data.photo
                                 }
                             });
                         })
@@ -144,6 +143,7 @@ function renderUserPosts(userEmail) {
                                         if (data.email === localStorage.getItem("userMail")) {
 
                                             name.innerText = `${data.firstName} ${data.lastName}`;
+                                            document.querySelector(".myImg").src = data.photo
 
                                         }
                                     });

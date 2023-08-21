@@ -91,7 +91,7 @@ function signup(event) {
             photo: photoU,
         })
         .then((docRef) => {
-            console.log("signed added")
+            // console.log("signed added")
         })
         .catch((error) => {
             console.log("error signup")

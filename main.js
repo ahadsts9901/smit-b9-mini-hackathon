@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         username = user.email.slice(0, -10); // Store the username
     } else {
-        window.location.href = "login.html";
+        window.location.href = "./all.html";
     }
 });
 
@@ -106,7 +106,7 @@ function renderPostsUser() {
                                 querySnapshot.forEach((doc) => {
                                     let data = doc.data()
                                     if (data.email === postEmail) {
-                                        console.log("match")
+                                        // console.log("match")
                                         image.src = data.photo
                                     }
                                 });
@@ -157,7 +157,7 @@ function renderPostsUser() {
                                                     var data = doc.data();
 
                                                     if (data.email === username) {
-                                                        console.log("founded")
+                                                        // console.log("founded")
                                                         name.innerText = `${data.firstName}  ${data.lastName} |`;
                                                         document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                                     }

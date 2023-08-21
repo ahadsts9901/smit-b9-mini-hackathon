@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                             var data = doc.data();
 
                             if (data.email === username) {
-                                console.log("founded")
+                                // console.log("founded")
                                 document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                 document.getElementById("name").innerText = `${data.firstName}  ${data.lastName}`;
                             }
@@ -138,7 +138,7 @@ function editName() {
                                             firstName: data.firstName,
                                             lastName: data.lastName
                                         }).then(() => {
-                                            console.log("Profile updated successfully!");
+                                            // console.log("Profile updated successfully!");
                                             Swal.fire({
                                                 icon: 'success',
                                                 title: 'Profile Updated',
@@ -177,16 +177,16 @@ function editName() {
 }
 
 function file(event) {
-    console.log(event.target.files[0])
+    // console.log(event.target.files[0])
     let uid = firebase.auth().currentUser.uid
-    console.log(uid)
+        // console.log(uid)
     let fileref = firebase.storage().ref().child(`/users/${uid}/profile`)
     let uploadTask = fileref.put(event.target.files[0])
 
     uploadTask.on('state_changed',
         (snapshot) => {
             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
+            // console.log('Upload is ' + progress + '% done');
             if (progress == 100) {
                 Swal.fire({
                     icon: 'success',
@@ -201,7 +201,7 @@ function file(event) {
         },
         () => {
             uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                console.log('File available at', downloadURL);
+                // console.log('File available at', downloadURL);
 
                 // Update the photo field in the user's document in Firestore
                 db.collection("users").where("email", "==", firebase.auth().currentUser.email)
@@ -211,7 +211,10 @@ function file(event) {
                             db.collection("users").doc(doc.id).update({
                                 photo: downloadURL
                             }).then(() => {
-                                console.log("Photo URL updated in Firestore.");
+                                // console.log("Photo URL updated in Firestore.");
+                                setTimeout(() => {
+                                    window.location.reload()
+                                })
                             }).catch((error) => {
                                 console.error("Error updating photo URL:", error);
                             });
@@ -235,11 +238,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         // Display the user's profile image if available
         if (user.photoURL) {
             document.querySelector(".mainImg").src = user.photoURL;
-            console.log("image")
+            // console.log("image")
         } else {
-            console.log("no")
+            // console.log("no")
         }
 
         // Rest of your code...
+    } else {
+        window.location.href = "./all.html"
     }
 });

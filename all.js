@@ -18,7 +18,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById("headerName").innerText = username;
     } else {
         document.querySelector(".log").innerText = "Login"
-        document.querySelector(".log").href = "/login"
+        document.querySelector(".log").addEventListener('click', () => {
+            window.location.href = "./login.html"
+        })
     }
 });
 
@@ -54,7 +56,7 @@ function renderPostsUser() {
                             querySnapshot.forEach((doc) => {
                                 let data = doc.data()
                                 if (data.email === postEmail) {
-                                    console.log("match")
+                                    // console.log("match")
                                     image.src = data.photo
                                 }
                             });
@@ -102,12 +104,12 @@ function renderPostsUser() {
                                         var data = doc.data();
 
                                         if (data.email === postEmail) {
-                                            console.log("founded")
+                                            // console.log("founded")
                                             name.innerText = `${data.firstName}  ${data.lastName}`;
                                             document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                             // document.getElementById("name").innerText = `${data.firstName}  ${data.lastName}`;
                                         } else {
-                                            console.log("not found")
+                                            // console.log("not found")
                                         }
 
                                     })
@@ -131,7 +133,7 @@ function renderPostsUser() {
                     cont.innerText = "see all from this user";
                     cont.href = './user.html'
                     cont.name = `${postEmail}`
-                    console.log(cont.name)
+                        // console.log(cont.name)
                     cont.style.gap = "1em"
                     cont.style.padding = "1em"
                     cont.addEventListener("click", (event) => {
@@ -148,7 +150,7 @@ function renderPostsUser() {
             }
         })
         .catch((error) => {
-            //console.error("Error getting posts: ", error);
+            console.error("Error getting posts: ", error);
         });
 }
 

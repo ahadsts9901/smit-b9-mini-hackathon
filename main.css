@@ -479,6 +479,8 @@ ul {
     align-self: flex-start;
     border: 1px solid #ccc;
     padding: 0.3em!important;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .gap {
@@ -529,6 +531,8 @@ ul {
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 0.5em;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .upd {
@@ -574,6 +578,8 @@ ul {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 0.5em;
+    object-fit: cover;
+    object-position: top center;
 }
 
 #mail {
@@ -583,4 +589,7 @@ ul {
 .myImg {
     width: 15em!important;
     /* height: 15em!important; */
+    /* height: 15em!important; */
+    object-fit: cover;
+    object-position: top center;
 }
