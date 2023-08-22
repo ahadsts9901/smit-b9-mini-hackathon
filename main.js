@@ -263,7 +263,7 @@ function editPost(postId, previousTitle, previousPost) {
     Swal.fire({
         title: "Edit Post",
         html: `<input id="editedTitle" class="swal2-input" value="${previousTitle}" placeholder="Title..." minlength="10" maxlength="50">
-             <textarea id="editedPost" class="swal2-input swal-ta" placeholder="Text...">${previousPost}</textarea minlength="25" maxlength="200">`,
+             <textarea id="editedPost" class="swal2-input swal-ta" placeholder="Text...">${previousPost}</textarea minlength="25" maxlength="2000">`,
         showCancelButton: true,
         confirmButtonColor: "#0079ff",
         cancelButtonColor: "#0079ff",
