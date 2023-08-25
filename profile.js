@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     await user.updatePassword(newPassword);
                     Swal.fire({
                         icon: 'success',
-                        title: `Password updated successfullt`,
+                        title: `Password updated successfully`,
                         showConfirmButton: false,
                         timer: 1500 // Show success message for 1.5 seconds
                     });
@@ -106,7 +106,7 @@ function logOut() {
         .then(() => {
             // console.log("Sign out successful");
             // Redirect to the sign-in page or any other desired destination
-            window.location.href = "./login.html";
+            window.location.href = "./all.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);

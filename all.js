@@ -88,6 +88,7 @@ function renderPostsUser() {
 
                     let tim = document.createElement("div")
                     tim.className += " row gap"
+                    tim.style.rowGap = "0em"
                     div.appendChild(tim)
 
                     // console.log(postEmail)
@@ -105,7 +106,7 @@ function renderPostsUser() {
 
                                         if (data.email === postEmail) {
                                             // console.log("founded")
-                                            name.innerText = `${data.firstName}  ${data.lastName}`;
+                                            name.innerText = `${data.firstName}  ${data.lastName} |`;
                                             document.getElementById("headerName").innerText = `${data.firstName}  ${data.lastName}`;
                                             // document.getElementById("name").innerText = `${data.firstName}  ${data.lastName}`;
                                         } else {
@@ -124,7 +125,7 @@ function renderPostsUser() {
 
                     let time = document.createElement("p");
                     time.className += " postTime";
-                    time.innerText = ` ${moment(timestamp).format("ll")}`;
+                    time.innerText = `| ${moment(timestamp).format("ll")}`;
                     tim.appendChild(time);
 
                     let cont = document.createElement("a");
@@ -161,7 +162,7 @@ function logOut() {
         .signOut()
         .then(() => {
             // console.log("Sign out successful");
-            window.location.href = "./login.html";
+            window.location.href = "./all.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);

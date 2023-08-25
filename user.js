@@ -189,7 +189,7 @@ function logOut() {
         .then(() => {
             // console.log("Sign out successful");
             // Redirect to the sign-in page or any other desired destination
-            window.location.href = "./login.html";
+            window.location.href = "./all.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);

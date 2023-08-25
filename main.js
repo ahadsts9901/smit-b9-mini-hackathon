@@ -318,7 +318,7 @@ function logOut() {
         .then(() => {
             // console.log("Sign out successful");//
 
-            window.location.href = "./login.html";
+            window.location.href = "./all.html";
         })
         .catch((error) => {
             console.log("Sign out error:", error);
