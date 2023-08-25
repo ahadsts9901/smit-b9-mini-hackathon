@@ -11,6 +11,13 @@ const firebaseConfig = {
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
 
+// logout automatically
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        window.location.href = "./all.html";
+    }
+});
+
 // show Password
 function showPassword(event) {
     event.target.className = "eye bi bi-eye-slash";

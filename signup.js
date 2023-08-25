@@ -11,6 +11,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
+// logout automatically
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        window.location.href = "./all.html";
+    }
+});
+
 // show Password
 function showPassword(event) {
     event.target.className = "eye bi bi-eye";
